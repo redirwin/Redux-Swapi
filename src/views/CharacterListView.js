@@ -15,7 +15,8 @@ class CharacterListView extends React.Component {
     }
 
     if (error) {
-      return <div>Sorry, but something went wrong. {error.message}</div>;
+      console.log(`The error is: ${error}`);
+      return <div>Sorry, but there was an error. Please try again.</div>;
     }
     return (
       <div className="CharactersList_wrapper">
@@ -25,9 +26,9 @@ class CharacterListView extends React.Component {
   }
 }
 const mapStateToProps = state => ({
-  characters: state.charsReducer.characters,
-  loading: state.loading,
-  error: state.error
+  error: state.charsReducer.error,
+  loading: state.charsReducer.loading,
+  characters: state.charsReducer.characters
 });
 
 export default connect(

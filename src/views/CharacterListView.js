@@ -5,11 +5,11 @@ import { CharacterList } from "../components";
 
 class CharacterListView extends React.Component {
   componentDidMount() {
-    this.props.dispatch(getCharacters());
+    this.props.getCharacters();
   }
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     const { error, loading, characters } = this.props;
     if (loading) {
       return <div>Loading characters...</div>;
@@ -26,7 +26,7 @@ class CharacterListView extends React.Component {
   }
 }
 const mapStateToProps = state => ({
-  characters: state.characters,
+  characters: state.charsReducer.characters,
   loading: state.loading,
   error: state.error
 });

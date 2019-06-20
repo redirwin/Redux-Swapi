@@ -13,7 +13,6 @@ const initialState = {
 export const charsReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_CHARS_START:
-      console.log("STARTING!");
       return {
         ...state,
         loading: true,
@@ -21,19 +20,17 @@ export const charsReducer = (state = initialState, action) => {
       };
 
     case FETCH_CHARS_SUCCESS:
-      console.log(action.payload);
       return {
         ...state,
         loading: false,
-        characters: action.payload.results
+        characters: action.payload.data.results
       };
 
     case FETCH_CHARS_FAILURE:
-      console.log("FAILED!");
       return {
         ...state,
         loading: false,
-        error: action.payload.error,
+        error: action.payload,
         characters: []
       };
 

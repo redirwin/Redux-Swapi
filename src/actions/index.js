@@ -10,8 +10,7 @@ export function getCharacters() {
     axios
       .get("https://swapi.co/api/people")
       .then(res => {
-        console.log(res);
-        dispatch({ type: FETCH_CHARS_SUCCESS, payload: res.chars });
+        dispatch({ type: FETCH_CHARS_SUCCESS, payload: res });
       })
       .catch(error => dispatch({ type: FETCH_CHARS_FAILURE, payload: error }));
   };

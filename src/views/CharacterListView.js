@@ -9,7 +9,6 @@ class CharacterListView extends React.Component {
   }
 
   render() {
-    // console.log(this.props);
     const { error, loading, characters } = this.props;
     if (loading) {
       return <div>Loading characters...</div>;
